@@ -4,7 +4,7 @@
     - name: Gather only registered virtual machines
       community.vmware.vmware_vm_info:
         hostname: '{{ inventory_hostname }}'
-        username: admin
+        username: '{{ esxi_username }}'
         password: '{{ esxi_password }}'
         vm_type: vm
       delegate_to: localhost
