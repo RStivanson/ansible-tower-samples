@@ -1,5 +1,6 @@
 - name: ESXi Deploy Ubuntu
   hosts: all
+  ansible_user: '{{ esxi_username }}'
   tasks:
     - name: Gather only registered virtual machines
       community.vmware.vmware_vm_info:
