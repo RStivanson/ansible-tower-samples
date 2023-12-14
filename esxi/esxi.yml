@@ -1,0 +1,13 @@
+- name: ESXi Deploy Ubuntu
+  hosts: all
+  tasks:
+    - name: Gather only registered virtual machines
+      community.vmware.vmware_vm_info:
+        hostname: '{{ inventory_hostname }}'
+        username: admin
+        password: '{{ esxi_password }}'
+        vm_type: vm
+      delegate_to: localhost
+      register: vm_info
+    - debug:
+        var: vm_info.virtual_machines
