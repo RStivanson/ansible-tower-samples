@@ -2,6 +2,8 @@
   hosts: all
   gather_facts: false
   tasks:
+    - include_vars: creds.yml
+      delegate_to: localhost
     - name: Gather only registered virtual machines
       community.vmware.vmware_vm_info:
         validate_certs: false
