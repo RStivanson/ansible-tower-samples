@@ -3,10 +3,10 @@
   tasks:
     - name: Gather only registered virtual machines
       community.vmware.vmware_vm_info:
+        validate_certs: false
         hostname: '{{ inventory_hostname }}'
         username: '{{ esxi_username }}'
         password: '{{ esxi_password }}'
-        port: 22
         vm_type: vm
       delegate_to: localhost
       register: vm_info
