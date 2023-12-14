@@ -8,6 +8,7 @@
         hostname: '{{ inventory_hostname }}'
         username: '{{ esxi_username }}'
         password: '{{ esxi_password }}'
+        port: 22
         vm_type: vm
       delegate_to: localhost
       register: vm_info
